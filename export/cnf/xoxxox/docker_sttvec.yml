@@ -1,0 +1,23 @@
+networks:
+  default:
+    name: xoxxox_netmid
+    external: true
+services:
+  xoxxox_sttvec:
+    image: xoxxox_envhgf:001
+    container_name: xoxxox_sttvec
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+    - ../../../export:/opt/common
+    - ../../../import/cnnmmd_xoxxox_envhgf/envhgf/hgf:/root/.cache/huggingface
+    env_file:
+    - ./envdir.txt
+    ports:
+    - 16102:80
+    command: "python /opt/common/bin/xoxxox/srvstt.py --engine xoxxox/engine_sttvec"
