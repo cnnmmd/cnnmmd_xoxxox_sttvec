@@ -4,7 +4,7 @@ networks:
     external: true
 services:
   xoxxox_sttvec:
-    image: xoxxox_envhgf:001
+    image: xoxxox/envhgf:001
     container_name: xoxxox_sttvec
     deploy:
       resources:
